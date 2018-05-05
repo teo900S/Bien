@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  score: 1
+  retaurant: MyString
+  string: MyString
+  price: 1
+  cuisine: MyString
+
+two:
+  title: MyString
+  body: MyText
+  score: 1
+  retaurant: MyString
+  string: MyString
+  price: 1
+  cuisine: MyString
