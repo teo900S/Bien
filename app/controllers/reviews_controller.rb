@@ -2,10 +2,21 @@ class ReviewsController < ApplicationController
 
   def index
     #this is our list page of rour reviews
+    @price = params[:price]
+    @cuisine =params[:cuisine]
 
-    @number = rand(100)
-
+    #start by getting all the ReviewsController
     @reviews = Review.all
+
+    #filter by price
+    if @price.present?
+      @reviews = @reviews.where(price: @review)
+    end
+
+    #filter by cuisine
+    if @cuisine.present?
+      @reviews = @reviews.where(cuisine: @cuisine)
+    end
 
   end
 
@@ -81,7 +92,7 @@ class ReviewsController < ApplicationController
 
 
   def form_params
-    params.require(:review).permit(:title, :restaurant, :body, :score)
+    params.require(:review).permit(:title, :restaurant, :body, :cuisine, :price, :score)
 
 
   end
