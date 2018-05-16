@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
 
     #filter by price
     if @price.present?
-      @reviews = @reviews.where(price: @review)
+      @reviews = @reviews.where(price: @price)
     end
 
     #filter by cuisine
