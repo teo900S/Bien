@@ -30,5 +30,15 @@ class ApplicationController < ActionController::Base
     session[:user_id].present?
   end
 
+  # check admin login status
+
+  def check_admin
+    @user = find_current_user
+
+    if @user.present? and @user.is_admin?
+      redirect_to root_path
+    end
+  end
+
 
 end
