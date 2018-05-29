@@ -43,6 +43,16 @@ gem 'mini_magick'
 gem "fog-aws"
 
 
+# Add active admin panel
+gem 'activeadmin'
+# Plus integrations with:
+gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
+
+
+
 # Add in geocoding
 gem "geocoder"
 

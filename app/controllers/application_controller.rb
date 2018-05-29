@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
 
   def find_current_user
     if is_logged_in?
-      @current_user = User.find_by_id(session[:user_id])
+      # @current_user = User.find_by_id(session[:user_id])
+      @current_user = User.find(session[:user_id])
     else
       @current_user = nil
     end
@@ -33,11 +34,30 @@ class ApplicationController < ActionController::Base
   # check admin login status
 
   def check_admin
-    @user = find_current_user
+    ##########################################
+    # @user = find_current_user
+    #
+    # if @user.present? and @user.is_admin?
+    #   redirect_to root_path
+    ##########################################
 
-    if @user.present? and @user.is_admin?
+    @current_user = find_current_user
+
+    unless @current_user.present? and @current_user.is_admin?
       redirect_to root_path
     end
+  end
+
+  # find admin users
+  def find_admin_user
+    @current_user = find_current_user
+
+    if @current_user.present? and @current_user.is_admin?
+      @current_user
+    else
+      nil
+    end
+
   end
 
 
